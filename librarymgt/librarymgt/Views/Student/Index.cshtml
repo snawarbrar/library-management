@@ -1,0 +1,62 @@
+﻿@model IEnumerable<librarymgt.Models.Student>
+
+@{
+    ViewData["Title"] = "Regidter New Student";
+}
+
+
+<p>
+    <a asp-action="CreateStudent"><b>Register New Student</b></a>
+         
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StudentId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RollNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StuName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StuEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Course)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StudentId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RollNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StuName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StuEmail)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Course)
+                </td>
+                <td>
+                    @Html.ActionLink("BookBorrowed", "BookBorrowed", new { id = item.StudentId }) |
+                    @Html.ActionLink("Edit", "Edit", new { id = item.StudentId }) |
+
+                    @Html.ActionLink("Delete", "Delete", new { id = item.StudentId })
+                </td>
+            </tr>
+        }
+       
+    </tbody>
+</table>

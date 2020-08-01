@@ -1,0 +1,57 @@
+﻿@model librarymgt.Models.BookIssued
+
+@{
+    ViewData["Title"] = "Issue Book";
+}
+
+
+@if (ViewBag.info != "")
+{<h2>@ViewBag.Info</h2> }
+else
+{
+    @if (ViewBag.booksInfo != "")
+    {
+        <h2>@ViewBag.booksInfo</h2>
+    }
+    else
+    {
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="IssueBookWithId">
+            <div class="form-group">
+                <div class="row">
+                    <div class="alert-danger" asp-validation-summary="ModelOnly"></div>
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                        <label asp-for="BookId" class="control-label"></label>
+                        <select asp-for="BookId"
+                                class="form-control"
+                                asp-items="@(new SelectList(@ViewBag.books, "BookId", "BookName"))"></select>
+                    </div>
+                </div>
+            </div>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="StudentId" class="control-label"></label>
+                <input asp-for="StudentId" class="form-control" />
+                <span asp-validation-for="StudentId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="issueDate" class="control-label"></label>
+                <input asp-for="issueDate" class="form-control" />
+                <span asp-validation-for="issueDate" class="text-danger"></span>
+            </div>
+           
+            <div class="form-group">
+                <input type="submit" value="Issue" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+    }
+}

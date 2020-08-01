@@ -1,0 +1,41 @@
+﻿@model IEnumerable<librarymgt.Models.BookCategory>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<p>
+    <a asp-action="AddCategory">Create New Category></a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BookCategoryId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookCategoryId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryName)
+            </td>
+            <td>
+                @Html.ActionLink("View Books", "ViewBooksByCategories", new {id=item.BookCategoryId}) |
+                @Html.ActionLink("Add New Book", "AddBook", new { id=item.BookCategoryId  }) |
+                
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,61 @@
+﻿@model IEnumerable<librarymgt.Models.BookBorrowed>
+
+@{
+    ViewData["Title"] = "BookBorrowed";
+}
+
+<h2>BookBorrowed BY @ViewBag.name</h2>
+<h2>@if (ViewBag.info != "") { @ViewBag.info; }</h2>
+
+@if (ViewBag.borrow != "")
+{ <h2>@ViewBag.borrow</h2> }
+else
+{
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StudentName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.issuedate)
+            </th>
+           
+            <th>
+               Return Date / Return Book
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model)
+{
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.issuedate)
+            </td>
+            <td>
+
+                @if (item.ReturnDate == null)
+                {
+                    @Html.ActionLink("ReturnBook", "ReturnBook", new { StuId = item.StudentId, bookId = item.BookId });
+                }
+                else
+                {
+                        @Html.DisplayFor(modelItem => item.ReturnDate)
+                }
+                  
+                </td>
+        </tr>
+}
+    </tbody>
+</table>
+}

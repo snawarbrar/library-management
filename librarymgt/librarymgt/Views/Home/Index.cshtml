@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="container">
+    <div  class="d-flex justify-content center">
+        <div class="col-md-4 text-center">
+            <h2 class="text-center"> Book Corner</h2>
+            <div class="col-md-12">
+                <a asp-area="" class="btn btn-primary  text-white" asp-controller="Book" asp-action="Index">Book Categories</a>
+                <a asp-area="" class="btn btn-primary text-white" asp-controller="Book" asp-action="addCategory"> Add New Book Category</a>
+            </div>
+            <div class="col-md-12" style="margin-top:20px;">
+                <a asp-area="" class="btn btn-primary  text-white" asp-controller="Book" asp-action="ListOfBooks">List All Books</a>
+                <a asp-area="" class="btn btn-primary text-white" asp-controller="Book" asp-action="Index"> Add New Book</a>
+            </div>
+        </div>
+        <div class="col-md-4 text-center">
+            <h2 class="text-center">Student Corner</h2>
+            <a asp-area="" class="btn btn-primary text-white" asp-controller="Student" asp-action="Index">View All Students</a>
+            <a asp-area="" class="btn btn-primary text-white" asp-controller="Student" asp-action="CreateStudent">Add New Student</a>
+        </div>
+        <div class="col-md-4 text-center">
+            <h2>Isuue Book Corner</h2>
+            <a asp-area="" class="btn btn-primary text-white" asp-controller="IssueBooks" asp-action="issueNewBook">Issue Book</a>
+        </div>
+        
+    </div>
+    <div class="container text-center">
+        <div class="col-md-8">
+            <h2>Return Book</h2>
+            <a asp-area="" class="btn btn-primary text-white" asp-controller="Student" asp-action="GetStudentIdToReturnBook">Return Book</a>
+        </div>
+
+    </div>
+    <div class="col-md-12 d-flex justify-content-center">
+        <h2>This Project Is Created By:-</h2>
+        <div class="col-md-3">Harkirat Singh Brar -200447333 </div>
+        <div class="col-md-3">Snawarjot Singh Brar-200447770</div>
+        <div class="col-md-3">Ishika - 200447078</div>
+        <div class="col-md-3">Jashan - 200446610</div>
+    </div>
+</div>

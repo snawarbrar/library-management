@@ -1,0 +1,28 @@
+﻿@model librarymgt.Models.BookCategory
+@{
+    ViewData["Title"] = "issueNewBook";
+}
+
+<h2>issueNewBook</h2>
+<div class="container">
+    <form asp-controller="IssueBooks" asp-action="IssueBookWithId" method="get" class="form-horizontal">
+        <div class="form-group">
+            <div class="row">
+                <div class="alert-danger" asp-validation-summary="ModelOnly"></div>
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                    <label asp-for="BookCategoryId" class="control-label"></label>
+                    <select asp-for="BookCategoryId"
+                            class="form-control"
+                            asp-items="@(new SelectList(@ViewBag.categories,"BookCategoryId", "CategoryName"))"></select>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                    <input id="Submit1" type="submit" value="Select" class="btn btn-primary" />
+                </div>
+            </div>
+         </div>
+    </form>
+</div>
